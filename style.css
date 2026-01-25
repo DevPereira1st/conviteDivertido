@@ -209,5 +209,76 @@ button:active {
 /* TELA CEULAR PEQUENA */
 
 @media screen and (max-width: 390px) {
+    
+    /* 1. Ajuste do texto inicial: Fonte ligeiramente menor e menos padding para economizar espaço */
+    .p1 p {
+        font-size: 1rem;
+        line-height: 1.4;
+        padding: 0 10px; 
+    }
 
+    .p2 .efeito p {
+        font-family: "Sekuya", system-ui;
+        font-weight: bold;
+        font-size: 1.6rem; /* Reduzido de 2rem para não quebrar em telas muito finas */
+        color: rgb(203, 209, 215);
+    }
+
+    /* 2. Título da página 3 reduzido para caber em uma ou duas linhas bonitas */
+    .p3 h1 {
+        font-size: 1.5rem;
+    }
+
+    /* 3. Vídeo ocupa o máximo possível, mantendo uma margem mínima */
+    .trailermovie video {
+        width: 92%; 
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* 4. Ajuste da imagem do ticket */
+    .p5 img {
+        width: 90%;
+        max-width: 260px;
+    }
+
+    /* --- INÍCIO: CORREÇÃO DO BOTÃO FUJÃO --- */
+    .p6 {
+        overflow: hidden !important; /* Força o corte de qualquer coisa que saia da tela */
+        position: relative;
+        width: 100%;
+        max-width: 100vw; /* Garante que a div pai nunca passe da largura da tela */
+    }
+
+    /* O curral do botão: Reduzimos a largura máxima para ele não fugir para fora da tela */
+    .p6 .buttons {
+        position: relative; 
+        width: 90%;
+        max-width: 260px; /* Limite bem menor para o botão correr com segurança */
+        height: 100px;    /* Altura reduzida proporcionalmente */
+        margin: 0 auto;
+    }
+
+    #nao {
+        transition: all 0.15s ease-out; /* Movimento um pouco mais rápido para espaços pequenos */
+    }
+    /* --- FIM: CORREÇÃO DO BOTÃO FUJÃO --- */
+
+    /* 5. Ajuste da área dos botões para o "toque do dedo" em telas mini */
+    .container .aceitar {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .buttons {
+        gap: 8px; /* Espaçamento menor entre os botões */
+        padding: 10px;
+        width: 95%;
+    }
+
+    button {
+        padding: 10px 8px;
+        font-size: 10px; /* Fonte reduzida para garantir que os botões fiquem lado a lado */
+        flex: 1; 
+    }
 }
