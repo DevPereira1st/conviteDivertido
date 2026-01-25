@@ -1,7 +1,5 @@
 /* COMPUTADOR */
-@media screen and (min-width: 769px) {
 
-}
 /* O Reset (margin 0) fica de fora, pois deve valer para tudo */
 * {
     margin: 0;
@@ -10,163 +8,185 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* TELA PADRÃO*/
-@media screen and (max-width: 768px) and (min-width: 389px) {
-
 body {
-background-color: #6e0505;
-opacity: 1;
-background-image:  linear-gradient(135deg, #850303 25%, transparent 25%), linear-gradient(225deg, #870505 25%, transparent 25%), linear-gradient(45deg, #830000 25%, transparent 25%), linear-gradient(315deg, #830000 25%, #950303d5 25%);
-background-position:  7px 0, 7px 0, 0 0, 0 0;
-background-size: 14px 14px;
-background-repeat: repeat;
+    background-color: #6e0505;
+    background-image: linear-gradient(135deg, #850303 25%, transparent 25%), 
+                        linear-gradient(225deg, #870505 25%, transparent 25%), 
+                      linear-gradient(45deg, #830000 25%, transparent 25%), 
+                      linear-gradient(315deg, #830000 25%, #950303d5 25%);
+    background-position: 7px 0, 7px 0, 0 0, 0 0;
+    background-size: 14px 14px;
+    background-repeat: repeat;
+    font-family: sans-serif;
+    overflow: hidden; /* Evita a barra de rolagem dupla */
 }
 
-.filme {
-
-    margin: 100px auto 25px auto;
-
-    .convite {
-        display: flex;
-        margin: auto;
-        justify-content: center;
-
-        p {
-            font-family: "Inconsolata", monospace;
-            font-optical-sizing: auto;
-            font-style: normal;
-            font-weight: bold;
-            color: rgb(203, 209, 215);
-        }
-    }
-
-    .trailer {
-        display: flex;
-        justify-content: center;
-        margin: 35px 0 10px 0;
-        p {
-            font-family: "Mitr", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-            color: whitesmoke;
-        }
-    }
-
-    .nomemovie {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px auto;
-
-        width: 250px;
-        height: 35px;
-
-        border: 1.8px outset #740101;
-        border-radius: 5px;
-
-        background: #94000070;
-        background: linear-gradient(90deg,rgba(148, 0, 0, 0.791) 1%, rgb(117, 8, 8) 50%, rgba(255, 0, 0, 0.66) 100%);
-        
-
-        p {
-            font-family: "Sekuya", system-ui;
-            font-weight: 400;
-            font-style: normal;
-            color: rgb(203, 209, 215);
-        }
-    }
-
-    .trailermovie {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        width: 400px;
-        height: 200px;
-
-        video {
-            width: 400px;
-            height: 200px;
-        }
-    }
-
+/* Configuração do Snap Scroll (Rolagem Magnética) */
+.interface {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
-    .ticket {
-        margin-top: 10px;
-        display: flex;
-        justify-content: center;
-        img {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        border-radius: 10px;
-        }
+section.pagina {
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+/* Cores de Fundo das Seções */
+.p1 { background-color: #6e0505; }
+.p2 { background-color: #6e6005; }
+.p3 { background-color: #05bb84; }
+.p4 { background-color: #0051ff; }
+.p5 { background-color: #e203b9; }
+.p6 { background-color: #7d7c7c; }
+
+/* Tipografia e Estilos de Texto */
+.p1 p, .p2 p {
+    font-family: "Inconsolata", monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: rgb(203, 209, 215);
+}
+
+/* Responsividade do Vídeo e Imagem */
+.trailermovie video {
+    width: 90%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.p5 img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Estilização da Última Tela (Botões) */
+.container .aceitar {
+    font-family: "Inconsolata", monospace;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: rgba(48, 47, 46, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#sim {
+    background-color: #198754; /* Verde Bootstrap */
+}
+
+#nao {
+    background-color: #dc3545; /* Vermelho Bootstrap */
+    font-family: "Unbounded", sans-serif;
+}
+
+/* TELA PADRÃO*/
+/* ==========================================================================
+   Responsividade: Telas de 389px até 768px (Smartphones e Tablets Pequenos)
+   ========================================================================== */
+
+@media screen and (min-width: 389px) and (max-width: 768px) {
+    
+    /* 1. Ajuste do texto inicial para melhor leitura */
+    .p1 p, .p2 p {
+        font-size: 1.1rem;
+        line-height: 1.5; /* Dá um respiro entre as linhas */
+        padding: 0 15px; /* Evita que o texto cole na borda da tela */
     }
 
-.container {
-
-    .buttons, .aceitar {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        align-items: center;
+    /* 2. O título da página 3 um pouco menor para não quebrar linha feio */
+    .p3 h1 {
+        font-size: 1.8rem;
     }
 
-    .aceitar {
-        margin-top: 20px;
-        font-family: "Inconsolata", monospace;
-        font-size: 15px;
-        font-weight: 600;
-        color: white;
+    /* 3. Ajuste do vídeo para ocupar quase toda a tela, mas com margem */
+    .trailermovie video {
+        width: 90%; 
+        max-width: 350px; /* Limite seguro para não estourar a tela */
+        height: auto;
+    }
+
+    /* 4. Ajuste da imagem do ticket */
+    .p5 img {
+        width: 85%;
+        max-width: 280px;
+    }
+
+    .p6 {
+        overflow: hidden; 
+        position: relative; 
+    }
+
+    /* O container dos botões vira o limite do movimento */
+    .p6 .buttons {
+        position: relative; 
+        width: 100%;
+        max-width: 320px; /* Limite máximo que ele pode fugir */
+        height: 120px;    /* Altura extra para ele ter para onde correr */
+    }
+
+    /* O botão que vai fugir precisa virar absoluto quando a função ativar */
+    #nao {
+        transition: all 0.2s ease-out; /* Deixa o movimento suave */
+    }
+
+    /* 5. Ajuste da área dos botões (Mais fáceis de tocar no celular) */
+    .container .aceitar {
+        font-size: 16px;
+        margin-bottom: 15px;
     }
 
     .buttons {
-        margin-top: 35px;
-        width: 230px;
-        height: 80px;
-        gap: 20px;
-        background-color: rgba(48, 47, 46, 0.245);
-        backdrop-filter: blur(68%);
-        border-radius: 5px;
-
-        #sim {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80px;
-            height: 20px;
-            border-radius: 2px;
-            background-color: green;
-            border: none;
-            font-family: "Sekuya", system-ui;
-            font-size: 10px;
-            color: rgb(249, 242, 237);
-            border: 0.5px solid rgba(245, 245, 245, 0.147);
-        }
-        #sim:active {
-            transform: scale(0.9);
-        }
-
-        #nao {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80px;
-            height: 20px;
-            border-radius: 2px;
-            background-color: rgb(128, 0, 0);
-            border: none;
-            font-family: "Unbounded", sans-serif;
-            font-size: 10px;
-            color: rgb(249, 242, 237);
-            border: 0.5px solid rgba(245, 245, 245, 0.147);
-        }
-
+        gap: 10px;
+        padding: 15px;
+        width: 90%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
-}
+    /* Botões maiores para o "Toque do Dedo" (Touch target) */
+    button {
+        padding: 12px 10px;
+        font-size: 11px;
+        flex: 1; /* Faz os botões dividirem o espaço igualmente */
+    }
 }
 /* TELA CEULAR PEQUENA */
 

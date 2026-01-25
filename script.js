@@ -1,41 +1,62 @@
 const btnSim = document.getElementById('sim');
 const btnNao = document.getElementById('nao');
 
-// Ação do Botão SIM (Redirecionamento)
 btnSim.addEventListener('click', () => {
-    // Coloque aqui o link do seu redirecionamento
     window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; 
 });
 
-// Função para fazer o botão fugir
+// FUNÇÃO CORRIGIDA DEFINITIVAMENTE
 function moverBotao(evento) {
-    // Se for um evento de toque (celular), previne o clique real
     if (evento.type === 'touchstart') {
         evento.preventDefault(); 
     }
 
-    // Muda a posição para absoluta para o botão se mover livremente na tela
+    // 1. Encontra a tela onde o botão está (Página 6)
+    const secao = btnNao.closest('section');
+
+    // 2. O PULO DO GATO: Força a seção a ser o "limite" do botão
+    secao.style.position = 'relative';
+
+    // O botão agora vai se mover livremente, MAS preso dentro da seção
     btnNao.style.position = 'absolute';
+    btnNao.style.zIndex = "9999";
+    btnNao.style.transition = "all 0.1s ease"; // Deixa o movimento rápido e fluido
 
-    // Pega o tamanho exato da tela do celular naquele momento
-    const larguraTela = window.innerWidth;
-    const alturaTela = window.innerHeight;
-
-    // Pega o tamanho do botão para ele não sumir da tela
+    // Medidas do Botão
     const larguraBotao = btnNao.offsetWidth;
     const alturaBotao = btnNao.offsetHeight;
 
-    // Calcula uma posição aleatória X e Y (mantendo o botão 100% visível na tela)
-    const novaPosicaoX = Math.floor(Math.random() * (larguraTela - larguraBotao));
-    const novaPosicaoY = Math.floor(Math.random() * (alturaTela - alturaBotao));
+    // 3. LIMITE DA TELA DE 390px:
+    // Pega a largura da tela, mas trava o máximo em 390px para garantir a segurança no mobile.
+    const larguraTela = Math.min(secao.clientWidth, 390); 
+    const alturaTela = secao.clientHeight;
 
-    // Aplica a nova posição com transição suave
+    // 4. Margem de segurança de 15 pixels para não raspar na borda
+    const maxLeft = larguraTela - larguraBotao - 15;
+    const maxTop = alturaTela - alturaBotao - 15;
+
+    // Gera posições X e Y aleatórias entre 15px e o limite máximo
+    const novaPosicaoX = Math.floor(Math.random() * (maxLeft - 15)) + 15;
+    const novaPosicaoY = Math.floor(Math.random() * (maxTop - 15)) + 15;
+
+    // Aplica a posição final
     btnNao.style.left = `${novaPosicaoX}px`;
     btnNao.style.top = `${novaPosicaoY}px`;
 }
 
-// Escuta o toque na tela (para o seu CSS mobile)
+// Eventos de Toque (Mobile) e Mouse (PC)
 btnNao.addEventListener('touchstart', moverBotao);
-
-// Escuta o mouse (caso o usuário abra no PC)
 btnNao.addEventListener('mouseover', moverBotao);
+
+// EFEITO REVELAR
+window.revel = ScrollReveal({ 
+    reset: true,
+    container: '.interface' // Fundamental para o Snap Scroll funcionar
+});
+
+revel.reveal('.efeito', {
+    duration: 2000,
+    distance: '30px',
+    origin: 'bottom', // Mudei para 'bottom' (fica mais natural no scroll vertical)
+    easing: 'ease-in-out'
+});
