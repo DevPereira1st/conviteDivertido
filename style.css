@@ -1,4 +1,7 @@
 /* COMPUTADOR */
+:root{
+    --fundo: #05071b;
+}
 
 /* O Reset (margin 0) fica de fora, pois deve valer para tudo */
 * {
@@ -9,15 +12,7 @@
 }
 
 body {
-    background-color: #6e0505;
-    background-image: linear-gradient(135deg, #850303 25%, transparent 25%), 
-                        linear-gradient(225deg, #870505 25%, transparent 25%), 
-                      linear-gradient(45deg, #830000 25%, transparent 25%), 
-                      linear-gradient(315deg, #830000 25%, #950303d5 25%);
-    background-position: 7px 0, 7px 0, 0 0, 0 0;
-    background-size: 14px 14px;
-    background-repeat: repeat;
-    font-family: sans-serif;
+    background-color: var(--fundo);
     overflow: hidden; /* Evita a barra de rolagem dupla */
 }
 
@@ -41,18 +36,25 @@ section.pagina {
 }
 
 /* Cores de Fundo das Seções */
-.p1 { background-color: #6e0505; }
-.p2 { background-color: #6e6005; }
-.p3 { background-color: #05bb84; }
-.p4 { background-color: #0051ff; }
-.p5 { background-color: #e203b9; }
-.p6 { background-color: #7d7c7c; }
+.p2 { background-color: var(--fundo); }
+.p3 { background-color: var(--fundo); }
+.p4 { background-color: var(--fundo); }
+.p1 { background-color: var(--fundo); }
+.p5 { background-color: var(--fundo); }
+.p6 { background-color: var(--fundo); }
 
 /* Tipografia e Estilos de Texto */
-.p1 p, .p2 p {
-    font-family: "Inconsolata", monospace;
+.p1 p {
+    font-family: "Unbounded", sans-serif;
     font-weight: bold;
     font-size: 1.2rem;
+    color: rgb(203, 209, 215);
+}
+
+.p2 .efeito p {
+    font-family: "Sekuya", system-ui;
+    font-weight: bold;
+    font-size: 2rem;
     color: rgb(203, 209, 215);
 }
 
@@ -74,7 +76,8 @@ section.pagina {
 
 /* Estilização da Última Tela (Botões) */
 .container .aceitar {
-    font-family: "Inconsolata", monospace;
+    font-family: "Unbounded", sans-serif;
+    letter-spacing: 5px;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 20px;
@@ -83,13 +86,14 @@ section.pagina {
 .buttons {
     display: flex;
     gap: 15px;
-    padding: 20px;
-    background-color: rgba(48, 47, 46, 0.4);
+    padding: 10px;
+    background-color: rgba(48, 47, 46, 0.178);
     backdrop-filter: blur(10px);
     border-radius: 8px;
 }
 
 button {
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,12 +113,18 @@ button:active {
 }
 
 #sim {
+    gap: 10px;
     background-color: #198754; /* Verde Bootstrap */
+    width: 100px;
+    height: 50px;
 }
 
 #nao {
+    gap: 10px;
     background-color: #dc3545; /* Vermelho Bootstrap */
     font-family: "Unbounded", sans-serif;
+    width: 100px;
+    height: 50px;
 }
 
 /* TELA PADRÃO*/
@@ -125,11 +135,19 @@ button:active {
 @media screen and (min-width: 389px) and (max-width: 768px) {
     
     /* 1. Ajuste do texto inicial para melhor leitura */
-    .p1 p, .p2 p {
+    .p1 p {
         font-size: 1.1rem;
         line-height: 1.5; /* Dá um respiro entre as linhas */
         padding: 0 15px; /* Evita que o texto cole na borda da tela */
     }
+
+
+.p2 .efeito p {
+    font-family: "Sekuya", system-ui;
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(203, 209, 215);
+}
 
     /* 2. O título da página 3 um pouco menor para não quebrar linha feio */
     .p3 h1 {
