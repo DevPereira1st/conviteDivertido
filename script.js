@@ -70,11 +70,11 @@ document.getElementById('sim').addEventListener('click', function() {
     // 2. Define a mensagem que vai no e-mail
     const parametros = {
         mensagem: "A pessoa clicou em SIM e aceitou o convite!",
-        para_email: "udyegopereira@gmail.com" // O e-mail que vai receber a notificação
+        para_email: "@gmail.com" // O e-mail que vai receber a notificação
     };
 
     // 3. Envia o e-mail (Substitua pelos seus IDs do EmailJS)
-    emailjs.send('service_m7wdv7g', 'template_0arhlm8', parametros)
+    emailjs.send('...', '...', parametros)
         .then(function(response) {
             // Se der certo:
             botaoSim.innerHTML = '<i class="bi bi-check-square-fill"></i> CONFIRMADO!';
